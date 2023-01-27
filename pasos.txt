@@ -1,0 +1,9 @@
+/**
+  * * Crear logica con jwt
+  * * loggearse para obtener token
+  * * enviar token junto a la ruta para verificar autorizacion
+*/
+
+# enviar header con informacion
+header: Authorization
+value: Bearer <token>
