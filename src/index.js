@@ -5,6 +5,8 @@ import loginRoutes from "./routes/login.routes.js";
 import postsRoutes from "./routes/posts.routes.js";
 
 const app = express();
+app.use(express.json());
+
 app.use(itemsRoutes);
 app.use(loginRoutes);
 app.use(postsRoutes);
