@@ -1,15 +1,7 @@
-import jwt from "jsonwebtoken";
-
 export const createItems = (req, res) => {
   try {
-    jwt.verify(req.token, "secretkey", (error, authData) => {
-      if (error) {
-        res.sendStatus(403);
-      } else {
-        res.json({ message: "post creado", authData });
-      }
-    });
+    res.json({ message: "post creato" });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
