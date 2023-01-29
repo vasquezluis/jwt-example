@@ -4,6 +4,7 @@ const users = [
     user: "luisvasquez",
     password: 123456789,
     email: "luisvasquez@gmail.com",
+    roles: ['admin', 'planillas', 'resultados']
   },
 ];
 
