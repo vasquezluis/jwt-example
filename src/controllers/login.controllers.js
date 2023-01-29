@@ -16,15 +16,15 @@ export const getItems = (req, res) => {
       res.status(404).json({ message: "User not found" });
     }
     if (response.error == "pass") {
-      res.status(409).json({ message: "Invalid password" });
+      res.status(409).json({ message: "Incorrect password" });
     }
 
     /**
      * * utilizar jwt
-     */
-
-    /**
-     * * el tercer parametro es el tiempo de expiracion
+     * ? primer parametro datos de usuario
+     * ? segundo parametro es la palabra clave, debe ser secreta
+     * ? el tercer parametro es el tiempo de expiracion
+     * ? el cuarto parametro es un callback con la respuesta
      */
 
     const expiresTime = "2m";
@@ -35,9 +35,13 @@ export const getItems = (req, res) => {
       { expiresIn: expiresTime },
       (err, token) => {
         res.json({
-          message: "token",
-          body: token,
+          message: "authData",
+          token: token,
           expiration: `Expires ${expiresTime} from now`,
+          userData: {
+            user: response.user,
+            roles: response.roles,
+          },
         });
       }
     );
